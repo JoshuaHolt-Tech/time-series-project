@@ -48,5 +48,9 @@ def prepare_superstore(df):
     df = df.set_index('Order Date').sort_index()
     
     df['Sales Total'] = (df['Sales'] * df['Quantity']) - df['Discount']
+    
+    df['Profitable'] = df.Profit > 0
+    
+    df.Profitable = df.Profitable.astype('int')
 
     return df
