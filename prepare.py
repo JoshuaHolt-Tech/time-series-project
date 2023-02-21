@@ -13,6 +13,7 @@ def prepare_store(df):
     df['month'] = df.index.month_name()
     df['day'] = df.index.day_name()
     df['sales_total'] = df.sale_amount * df.item_price
+    df['Time to ship'] = df['Ship Date'] - df.index
     
     return df
 
